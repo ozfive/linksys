@@ -152,14 +152,14 @@ This action instructs the router to reboot.
 This action sets the _router_ admin password, NOT the network password.
 * `adminPassword` a string set to the password
 * `passwordHint` a hint viewable by anyone connected to the network
-	```json
-	[
-		{
-		     "adminPassword":"AdminPassword",
-		     "passwordHint":""
-		}
-	]
-	```
+```json
+[
+	{
+		"adminPassword":"AdminPassword",
+		"passwordHint":""
+	}
+]
+```
 #### `devicelist/SetDeviceProperties`
 This action sets properties for a specified device.
 * `deviceID` the device GUID assigned by the router
@@ -255,3 +255,72 @@ This action sets the SSID and password for the main networks.
 		* `ssid`
 		* `wpaPersonalSettings` an object containing the password
 			* `passphrase` a string set to the password of the network
+
+EXAMPLE 1:
+```json
+[
+	{
+		"isBandSteeringEnabled":true,
+		"bandSteeringMode":"Basic",
+		"radios":[
+			{
+			   "radioID":"RADIO_2.4GHz",
+			   "settings":{
+			      "isEnabled":true,
+			      "mode":"802.11bgn",
+			      "ssid":"SampleWifiName",
+			      "broadcastSSID":true,
+			      "channelWidth":"Auto",
+			      "channel":0,
+			      "security":"WPA2-Personal",
+			      "wpaPersonalSettings":{
+			         "passphrase":"SamplePassword"
+			      }
+			   }
+			}
+		]
+	}
+]
+```
+
+EXAMPLE 2:
+```json
+[
+	{
+		"isBandSteeringEnabled":true,
+		"bandSteeringMode":"Basic",
+		"radios":[
+			{
+			   "radioID":"RADIO_5GHz",
+			   "settings":{
+			      "isEnabled":true,
+			      "mode":"802.11anac",
+			      "ssid":"SampleWifiName",
+			      "broadcastSSID":true,
+			      "channelWidth":"Wide80",
+			      "channel":36,
+			      "security":"WPA2-Personal",
+			      "wpaPersonalSettings":{
+			         "passphrase":"SamplePassword"
+			      }
+			   }
+			},
+			{
+			   "radioID":"RADIO_5GHz_2",
+			   "settings":{
+			      "isEnabled":true,
+			      "mode":"802.11anac",
+			      "ssid":"SampleWifiName",
+			      "broadcastSSID":true,
+			      "channelWidth":"Wide80",
+			      "channel":161,
+			      "security":"WPA2-Personal",
+			      "wpaPersonalSettings":{
+			         "passphrase":"SamplePassword"
+			      }
+			   }
+			}
+		]
+	}
+]
+```
