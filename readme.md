@@ -152,7 +152,14 @@ This action instructs the router to reboot.
 This action sets the _router_ admin password, NOT the network password.
 * `adminPassword` a string set to the password
 * `passwordHint` a hint viewable by anyone connected to the network
-
+	```json
+	[
+		{
+		     "adminPassword":"AdminPassword",
+		     "passwordHint":""
+		}
+	]
+	```
 #### `devicelist/SetDeviceProperties`
 This action sets properties for a specified device.
 * `deviceID` the device GUID assigned by the router
